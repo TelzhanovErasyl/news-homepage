@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+body {
+    font-size: 15px;
+    font-family: 'Inter';
+}
+
+h1,
+h2,
+p {
+    margin: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+// COLORS
+$softOrange: hsl(35, 77%, 62%);
+$softRed: hsl(5, 85%, 63%);
+$offWhite: hsl(36, 100%, 99%);
+$grayBlue: hsl(233, 8%, 79%);
+$darkGrayBlue: hsl(236, 13%, 42%);
+$veryDarkBlue: hsl(240, 100%, 5%);
+
+main {
+    background-color: $offWhite;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__link {
+        text-decoration: none;
+        color: $darkGrayBlue;
+        margin: 0 1.5rem;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &:hover {
+            color: $softRed;
+        }
+    }
+
+    &__menu {
+        display: none;
+    }
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 2.1fr 1fr;
+    column-gap: 25px;
+    margin-top: 3rem;
+
+    &__img img {
+        width: 100%;
+    }
+
+    &__text {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 2rem;
+    }
+
+    &__title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: $veryDarkBlue;
+        width: 45%;
+        line-height: 1;
+    }
+
+    &__subtitle {
+        color: $darkGrayBlue;
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    &__description {
+        line-height: 1.5;
+    }
+
+    &__button {
+        background-color: $softRed;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        font-weight: 600;
+        display: inline-block;
+        padding: 1rem 2rem;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $veryDarkBlue;
+
+        }
+    }
+}
+
+.aside {
+    background-color: $veryDarkBlue;
+    padding: 2rem 1.5rem;
+
+    &__title {
+        color: $softOrange;
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+}
+
+.list {
+    margin-top: 2rem;
+
+    &__item {
+        margin-top: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid $offWhite;
+
+        &:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+    }
+
+    &__title {
+        display: block;
+        color: $offWhite;
+        font-weight: 700;
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+        text-decoration: none;
+
+        &:hover {
+            color: $softOrange;
+        }
+    }
+
+    &__subtitle {
+        color: $grayBlue;
+        line-height: 1.5;
+    }
+}
+
+.cards {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 2rem;
+    margin-top: 4rem;
+}
+
+.card {
+    display: flex;
+
+    &__img img {
+        width: 100%;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-left: 1rem;
+    }
+
+    &__number {
+        font-size: 2rem;
+        font-weight: 700;
+        color: $grayBlue;
+    }
+
+    &__title a {
+        color: $veryDarkBlue;
+        font-size: 1.5rem;
+        font-weight: 800;
+        text-decoration: none;
+
+        &:hover {
+            color: $softRed;
+        }
+    }
+
+    &__subtitle {
+        color: $darkGrayBlue;
+        line-height: 1.5;
+    }
+}
+
+// MEDIA REQUESTS
+@media (max-width: 1086px) {
+    .card {
+
+        &__title,
+        &__number {
+            font-size: 1.2rem;
+        }
+
+        &__subtitle {
+            font-size: 0.8rem;
+        }
+    }
+}
+
+@media (max-width: 954px) {
+    .header {
+        &__title {
+            font-size: 3rem;
+        }
+    }
+}
+
+@media (max-width: 908px) {
+    .card {
+        &__title {
+            font-size: 1rem;
+        }
+
+        &__number {
+            font-size: 1.5rem;
+        }
+
+        &__subtitle {
+            font-size: 0.7rem;
+        }
+    }
+}
+
+@media (max-width: 825px) {
+    .header {
+        &__text {
+            flex-direction: column;
+        }
+
+        &__title,
+        &__subtitle {
+            width: auto;
+        }
+
+        &__subtitle,
+        &__button {
+            margin-top: 1rem;
+        }
+    }
+
+    .list {
+        &__title {
+            font-size: 1rem;
+        }
+
+        &__subtitle {
+            font-size: 0.8rem;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        display: block;
+    }
+
+    .aside {
+        margin-top: 4rem;
+    }
+}
+
+@media (max-width: 673px) {
+    .cards {
+        flex-direction: column;
+    }
+
+    .card {
+        margin: 1rem 0;
+
+        &__title {
+            font-size: 1.5rem;
+        }
+
+        &__subtitle {
+            font-size: 1rem;
+        }
+
+        &__number {
+            font-size: 2rem;
+        }
+
+        &__img img {
+            width: 120px;
+        }
+    }
+
+    .list {
+        &__title {
+            font-size: 1.5rem;
+        }
+
+        &__subtitle {
+            font-size: 1rem;
+        }
+
+        &__number {
+            font-size: 2rem;
+        }
+    }
+
+    .nav {
+        // Creating adaptive menu
+        &__links {
+            display: none;
+        }
+
+        .mobile {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #fff;
+            line-height: 2;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 70%;
+            height: 100vh;
+        }
+
+
+        &__menu {
+            display: block;
+            z-index: 1;
+        }
+
+        &__link {
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: $veryDarkBlue;
+        }
+    }
+}
